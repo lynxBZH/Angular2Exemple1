@@ -8,8 +8,9 @@ export class ClientService {
     constructor() { }
 
     public getClients() {
-        //return (CLIENTS);
-        return Promise.resolve(CLIENTS);
+        return (CLIENTS);
+       // return Promise.resolve(CLIENTS);
+    
     }
 
     public getClient(id : number) {
@@ -25,6 +26,9 @@ export class ClientService {
     }
 
     public suppClient(client : Client) : boolean {
+        return false;
+    }
+     public suppAllClient() : boolean {
         return false;
     }
 
