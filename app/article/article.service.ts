@@ -3,11 +3,11 @@ import { ARTICLE } from './article.mock';
 import { Article } from './article';
 
 @Injectable()
-export class ClientService {
+export class ArticleService {
 
     constructor() { }
 
-    public getClients() {
+    public getArticles() {
         return (ARTICLE);
        // return Promise.resolve(CLIENTS);
     
@@ -21,11 +21,11 @@ export class ClientService {
         return false;
     }
 
-    public addArticle(client : Article) : boolean {
+    public addArticle(article : Article) : boolean {
         return false;
     }
 
-    public suppArticle(client : Article) : boolean {
+    public suppArticle(article : Article) : boolean {
         return false;
     }
      public suppAllArticle() : boolean {

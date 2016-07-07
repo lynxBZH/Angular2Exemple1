@@ -1,7 +1,8 @@
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Article }    from './article';
-import { ArticleService } from '../service';
+import { ArticleService } from './article.service';
 
 @Component({
     selector: 'article-form',
@@ -12,20 +13,27 @@ import { ArticleService } from '../service';
 
 export class ArticleDetailComponent implements OnInit {
     private _listeArticle: Article[];
-        private _articleService: ArticleService;
+    private _articleService: ArticleService;
     private _indiceEnCours: number;
+    private _router: Router;
 
- constructor() {
-        
+    constructor(articleService: ArticleService, router: Router) {
+        this._articleService = articleService;
+        this._router = router;
     }
 
-     @Input() enrArticle: Article;
+
+    @Input() enrArticle: Article;
     titre = 'Saisie article';
 
     submitted = false;
 
-    ngOnInit() {        
-         this.setEncours(0);    
+    ngOnInit() {
+        console.log(this._articleService + "coucou");
+        this._listeArticle = this._articleService.getArticles();
+
+        this.setEncours(0);
+
     }
 
     onSubmit() {
@@ -39,13 +47,13 @@ export class ArticleDetailComponent implements OnInit {
 
     active = true;
     private ajouterArticle() {
-        this.enrArticle = new Article(0, 0, '', 0, 0);
+        this.enrArticle = new Article(0, '', 0, 0);
         this.active = false;
         setTimeout(() => this.active = true, 0);
         this._indiceEnCours = this._listeArticle.push(this.enrArticle) - 1;
     }
 
-        private setEncours(ind: number): void {
+    private setEncours(ind: number): void {
         this.enrArticle = this._listeArticle[ind];
         this._indiceEnCours = ind;
     }

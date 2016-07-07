@@ -1,8 +1,9 @@
 //moteur qui relie les models
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Client }    from './client';
-import { ClientService } from '../service';
+import { ClientService } from './client.service';
 
 @Component({
     selector: 'client-form',
@@ -15,9 +16,11 @@ export class ClientDetailComponent implements OnInit {
     private _listeClients: Client[];
     private _clientService: ClientService;
     private _indiceEnCours: number;
+    private _router: Router;
 
-    constructor(clientService: ClientService) {
+    constructor(clientService: ClientService,  router: Router) {
         this._clientService = clientService;
+        this._router = router;
     }
 
     @Input() enrClient: Client;
