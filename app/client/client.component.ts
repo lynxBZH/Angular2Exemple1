@@ -24,7 +24,7 @@ export class ClientDetailComponent implements OnInit {
     }
 
     @Input() enrClient: Client;
-    titre = 'Saisie client';
+    titre = 'Saisie des clients';
 
     submitted = false;
 

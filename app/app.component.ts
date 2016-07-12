@@ -8,11 +8,15 @@ import { ArticleService } from './article/article.service';
 @Component({
     selector: 'my-app',
     
-    template: `<router-outlet></router-outlet>`,
+    templateUrl: 'app/app.component.html',
+ 
     directives: [ROUTER_DIRECTIVES],
     providers: [ClientDetailComponent, ArticleDetailComponent]
 })
 
 export class AppComponent  {
-   
+  
 }
+
+
+//*ngIf="article.length > 0"

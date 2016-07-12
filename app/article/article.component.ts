@@ -24,7 +24,7 @@ export class ArticleDetailComponent implements OnInit {
 
 
     @Input() enrArticle: Article;
-    titre = 'Saisie article';
+    titre = 'Saisie d\'articles';
 
     submitted = false;
 
@@ -66,5 +66,17 @@ export class ArticleDetailComponent implements OnInit {
     private setPrecedent() {
         if (this._indiceEnCours > 0)
             this.setEncours(--this._indiceEnCours);
+    }
+
+    private supprimerArticle(article: Article) {
+        let end = this._listeArticle.indexOf(article);
+        this._articleService.suppArticle(article);
+        this._listeArticle.splice(end, 1);
+        this.setEncours(0);
+    }
+
+    private editerArticle(article:Article) {
+            let end = this._listeArticle.indexOf(article);  
+            this.setEncours(end);
     }
 }

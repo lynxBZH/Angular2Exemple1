@@ -1,5 +1,4 @@
 import { provideRouter, RouterConfig }  from '@angular/router';
-
 import { ClientDetailComponent } from './client/client.component';
 import { ArticleDetailComponent } from './article/article.component';
  

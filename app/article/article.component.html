@@ -1,11 +1,11 @@
- la vue
+
 <div>
     <h1>{{titre}}</h1>
 
     <div *ngIf="enrArticle">
         
       
-      
+      <div id="tableau" class="col-lg-offset-4 col-md-offset-4 col-lg-8 col-md-8">
         <div class="form-group">
             <label for="id">id:</label>
             <input type="number" class="form-control"
@@ -34,14 +34,28 @@
             <button (click)="supprimerArticle()" type="button" class="btn btn-default" >Supprimer</button>
             
         </div>
+        <div id="test">            
+            <button (click)="setPrecedent()" type="button" class="btn btn-default" >Precedent</button>
+            <button (click)="setSuivant()" type="button" class="btn btn-default" >Suivant</button>
+        </div> 
         <div>
-            
-            <button (click)="setPrecedent()" type="button" class="btn btn-default" >Rec</button>
-            <button (click)="setSuivant()" type="button" class="btn btn-default" >Suiv</button>
-        </div>
-        <div>
-            <h1>ATTENTION! : </h1>
+            <h1>ATTENTION : </h1>
              <button (click)="supprimerAllArticle()" type="button" class="btn btn-default" >Supprimer tous les articles!</button>
+        </div>
+        <div >
+    <h2>ARTICLE</h2> 
+    
+    <table> 
+        <tr *ngFor="let article of _listeArticle" class="">
+            <td>{{article.id}}</td> 
+            <td>{{article.description}}</td>
+            <td>{{article.prixHt}}</td>
+            <td>{{article.tva}}</td>
+            <td><button (click)="supprimerArticle(article)" type="button" class="btn btn-default" >Supprimer l'article</button></td>
+            <td><button (click)="editerArticle(article)" type="button" class="btn btn-default" >Editer Article</button></td>
+         </tr>         
+    </table>
+    </div>
         </div>
     </div>
 </div>

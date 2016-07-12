@@ -2,12 +2,13 @@
 <div>
     <h1>{{titre}}</h1>
 
-    <div *ngIf="enrClient">
+    <div *ngIf="enrClient" id="container">
         <!--<div class="form-group">
             <label for="nom">Nom</label>
             <input type="text" class="form-control" required [(ngModel)]="model.nom" name="nom" #nom="ngModel">
             <span [hidden]="nom.valid" class="alert alert-danger">Vous devez entrer un nom !</span>
         </div>-->
+        <div id="tableau" class="col-lg-offset-6 col-md-offset-6 col-lg-5 col-md-5">
         <div class="form-group">
             <label>nom :</label>
             <input type="text" class="form-control" placeholder="Obligatoire"
@@ -45,7 +46,7 @@
             <button (click)="supprimerClient()" type="button" class="btn btn-default" >Supprimer</button>
             
         </div>
-        <div>
+        <div id="test">
             
             <button (click)="setPrecedent()" type="button" class="btn btn-default" >Rec</button>
             <button (click)="setSuivant()" type="button" class="btn btn-default" >Suiv</button>
@@ -54,5 +55,6 @@
             <h1>ATTENTION! : </h1>
              <button (click)="supprimerAllClient()" type="button" class="btn btn-default" >Supprimer tous les clients!</button>
         </div>
+    </div>
     </div>
 </div>
